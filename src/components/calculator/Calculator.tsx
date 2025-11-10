@@ -53,6 +53,12 @@ export const Calculator = () => {
     }
   };
 
+  const handlePlusMinus = () => {
+    if (display !== "0") {
+      setDisplay(display.startsWith("-") ? display.slice(1) : "-" + display);
+    }
+  };
+
   const handleFunction = (func: string) => {
     try {
       const num = parseFloat(display);
@@ -149,10 +155,11 @@ export const Calculator = () => {
               <CalculatorButton value="1" onClick={handleNumber} />
               <CalculatorButton value="2" onClick={handleNumber} />
               <CalculatorButton value="3" onClick={handleNumber} />
-              <CalculatorButton value="=" onClick={handleEquals} variant="equals" />
+              <CalculatorButton value="±" onClick={handlePlusMinus} variant="operator" />
               
               <CalculatorButton value="0" onClick={handleNumber} span={2} />
               <CalculatorButton value="." onClick={handleDecimal} />
+              <CalculatorButton value="=" onClick={handleEquals} variant="equals" />
             </div>
           </TabsContent>
 
@@ -192,10 +199,11 @@ export const Calculator = () => {
               <CalculatorButton value="1" onClick={handleNumber} />
               <CalculatorButton value="2" onClick={handleNumber} />
               <CalculatorButton value="3" onClick={handleNumber} />
-              <CalculatorButton value="=" onClick={handleEquals} variant="equals" />
+              <CalculatorButton value="±" onClick={handlePlusMinus} variant="operator" />
               
               <CalculatorButton value="0" onClick={handleNumber} span={2} />
               <CalculatorButton value="." onClick={handleDecimal} />
+              <CalculatorButton value="=" onClick={handleEquals} variant="equals" />
             </div>
           </TabsContent>
         </Tabs>
